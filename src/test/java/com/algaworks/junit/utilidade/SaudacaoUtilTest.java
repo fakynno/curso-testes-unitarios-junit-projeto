@@ -9,6 +9,6 @@ class SaudacaoUtilTest {
     @Test
     public void saudar() {
         String saudacao = SaudacaoUtil.saudar(9);
-        assertEquals("Bom dia", saudacao);
+        assertEquals("Bom dia", saudacao, "Saudação Incorreta!");
     }
 }
