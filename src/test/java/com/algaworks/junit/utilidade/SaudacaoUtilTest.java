@@ -8,6 +8,6 @@ class SaudacaoUtilTest {
     @Test
     public void saudar() {
         String saudacao = SaudacaoUtil.saudar(9);
-        Assertions.assertTrue(saudacao.equals("Bom dia"));
+        Assertions.assertEquals("Bom dia", saudacao);
     }
 }
