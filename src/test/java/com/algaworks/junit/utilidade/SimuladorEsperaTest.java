@@ -13,4 +13,8 @@ class SimuladorEsperaTest {
         assertTimeout(Duration.ofSeconds(2), ()-> SimuladorEspera.esperar(Duration.ofSeconds(1)));
     }
 
+    @Test
+    void shouldAwaitAndDoNotThrowTimeout2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
+    }
 }
