@@ -2,6 +2,7 @@ package com.algaworks.junit.utilidade;
 
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 import java.time.Duration;
 
@@ -30,6 +31,14 @@ class SimuladorEsperaTest {
     void shouldAwaitAndDoNotThrowTimeout4() {
         Assumptions.assumeTrue("PROD".equals(System.getenv("ENV")),
                 () -> "Teste será abortado; não pode ser executado em PRD");
+        assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
+    }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named = "ENV", matches = "DEV")
+    void shouldAwaitAndDoNotThrowTimeout5() {
+//        Assumptions.assumeTrue("PROD".equals(System.getenv("ENV")),
+//                () -> "Teste será abortado; não pode ser executado em PRD");
         assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
     }
 }
