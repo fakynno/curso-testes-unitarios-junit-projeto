@@ -19,6 +19,12 @@ class SaudacaoUtilTest {
     }
 
     @Test
+    void saudarNoite() {
+        String saudacao = SaudacaoUtil.saudar(20);
+        assertEquals("Boa noite", saudacao, "Saudação incorreta!");
+    }
+
+    @Test
     public void shouldThrowException() {
         IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class,
                 () -> SaudacaoUtil.saudar(-10));
