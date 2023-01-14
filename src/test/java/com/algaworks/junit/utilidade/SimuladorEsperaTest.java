@@ -1,11 +1,12 @@
 package com.algaworks.junit.utilidade;
 
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 class SimuladorEsperaTest {
 
@@ -25,8 +26,10 @@ class SimuladorEsperaTest {
     }
 
     @Test
-    @Disabled("Não se aplica")
+//    @Disabled("Não se aplica")
     void shouldAwaitAndDoNotThrowTimeout4() {
+        Assumptions.assumeTrue("PROD".equals(System.getenv("ENV")),
+                () -> "Teste será abortado; não pode ser executado em PRD");
         assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
     }
 }
