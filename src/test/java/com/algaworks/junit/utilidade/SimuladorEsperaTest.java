@@ -1,5 +1,6 @@
 package com.algaworks.junit.utilidade;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -15,6 +16,17 @@ class SimuladorEsperaTest {
 
     @Test
     void shouldAwaitAndDoNotThrowTimeout2() {
+        assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
+    }
+
+    @Test
+    void shouldAwaitAndDoNotThrowTimeout3() {
+        assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
+    }
+
+    @Test
+    @Disabled("Não se aplica")
+    void shouldAwaitAndDoNotThrowTimeout4() {
         assertTimeoutPreemptively(Duration.ofSeconds(1), ()-> SimuladorEspera.esperar(Duration.ofMillis(10)));
     }
 }
