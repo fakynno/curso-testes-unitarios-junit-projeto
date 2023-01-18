@@ -31,6 +31,6 @@ public class ContaBancaria {
 
     public BigDecimal saldoConta() {
         //TODO 1 - retornar saldo
-        return null;
+        return this.getSaldo();
     }
 }
