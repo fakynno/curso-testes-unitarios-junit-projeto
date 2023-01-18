@@ -20,6 +20,10 @@ public class ContaBancaria {
     public ContaBancaria(BigDecimal saldo) {
         //TODO 1 - validar saldo: não pode ser nulo, caso seja, deve lançar uma IllegalArgumentException
         //TODO 2 - pode ser zero ou negativo
+        saldo = this.getSaldo();
+        if (saldo == null) {
+            throw new IllegalArgumentException(SALDO_NULO);
+        }
     }
 
     public void saque(BigDecimal valor) {
