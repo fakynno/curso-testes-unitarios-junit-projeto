@@ -4,6 +4,15 @@ import java.math.BigDecimal;
 
 public class ContaBancaria {
 
+    private BigDecimal saldo;
+
+    public BigDecimal getSaldo() {
+        return saldo;
+    }
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
+    }
+
     public ContaBancaria(BigDecimal saldo) {
         //TODO 1 - validar saldo: não pode ser nulo, caso seja, deve lançar uma IllegalArgumentException
         //TODO 2 - pode ser zero ou negativo
@@ -20,7 +29,7 @@ public class ContaBancaria {
         //TODO 2 - Deve adicionar o valor ao saldo
     }
 
-    public BigDecimal saldo() {
+    public BigDecimal saldoConta() {
         //TODO 1 - retornar saldo
         return null;
     }
