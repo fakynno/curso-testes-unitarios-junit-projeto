@@ -6,6 +6,10 @@ public class ContaBancaria {
 
     private BigDecimal saldo;
 
+    private final static String SALDO_NULO = "Saldo não pode ser nulo!";
+    private final static String SALDO_ZERADO = "Saldo não pode ser zerado!";
+    private final static String SALDO_NEGATIVO = "Saldo não pode ser negativo!";
+
     public BigDecimal getSaldo() {
         return saldo;
     }
