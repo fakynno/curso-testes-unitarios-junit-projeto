@@ -53,6 +53,16 @@ public class ContaBancaria {
     public void deposito(BigDecimal valor) {
         //TODO 1 - validar valor: não pode ser nulo, zero ou menor que zero, caso seja, deve lançar uma IllegalArgumentException
         //TODO 2 - Deve adicionar o valor ao saldo
+
+        valor = valor.add(this.getSaldo());
+
+        if (valor == null) {
+            throw new IllegalArgumentException(SALDO_NULO);
+        } else if (valor.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException(SALDO_NEGATIVO);
+        } else if (valor.compareTo(BigDecimal.ZERO) == 0) {
+            throw new IllegalArgumentException(SALDO_ZERADO);
+        }
     }
 
     public BigDecimal saldoConta() {
