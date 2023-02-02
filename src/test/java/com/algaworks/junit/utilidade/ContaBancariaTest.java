@@ -37,6 +37,13 @@ class ContaBancariaTest {
     }
 
     @Test
+    void saqueNormal() {
+        ContaBancaria conta = new ContaBancaria(new BigDecimal(300));
+        conta.saque(BigDecimal.valueOf(200));
+        assertEquals(BigDecimal.valueOf(100), conta.saldoConta());
+    }
+
+    @Test
     void depositoNaoPodeSerNulo() {
         ContaBancaria contaBancaria = new ContaBancaria(new BigDecimal(100));
         assertThrows(IllegalArgumentException.class, () -> {
