@@ -58,6 +58,8 @@
             valor = saldoAux.subtract(valor);
             resultado = valor;
 
+
+
             if (valor.compareTo(BigDecimal.ZERO) < 0) {
                 throw new RuntimeException(SALDO_INSUFICIENTE);
             }
@@ -69,6 +71,7 @@
             } else if (resultado.compareTo(BigDecimal.ZERO) == 0) {
                 throw new IllegalArgumentException(SALDO_ZERADO);
             }
+            setSaldo(resultado);
         }
 
         public void deposito(BigDecimal valor) {
