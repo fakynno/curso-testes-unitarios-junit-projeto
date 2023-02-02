@@ -37,9 +37,10 @@
         public ContaBancaria(BigDecimal saldo) {
             //TODO 1 - validar saldo: não pode ser nulo, caso seja, deve lançar uma IllegalArgumentException
             //TODO 2 - pode ser zero ou negativo
-            saldo = this.getSaldo();
             if (saldo == null) {
                 throw new IllegalArgumentException(SALDO_NULO);
+            } else {
+                this.saldo = saldo;
             }
         }
 
@@ -48,9 +49,13 @@
             //TODO 2 - Deve subtrair o valor do saldo
             //TODO 3 - Se o saldo for insuficiente deve lançar uma RuntimeException
 
-            BigDecimal resultado;
+            if (valor == null) {
+                throw new IllegalArgumentException(SALDO_NULO);
+            }
 
-            valor = valor.subtract(this.getSaldo());
+            BigDecimal resultado;
+            BigDecimal saldoAux = this.getSaldo();
+            valor = saldoAux.subtract(valor);
             resultado = valor;
 
             if (valor.compareTo(BigDecimal.ZERO) < 0) {
@@ -70,11 +75,13 @@
             //TODO 1 - validar valor: não pode ser nulo, zero ou menor que zero, caso seja, deve lançar uma IllegalArgumentException
             //TODO 2 - Deve adicionar o valor ao saldo
 
-            valor = valor.add(this.getSaldo());
-
             if (valor == null) {
                 throw new IllegalArgumentException(SALDO_NULO);
-            } else if (valor.compareTo(BigDecimal.ZERO) < 0) {
+            }
+
+            valor = valor.add(this.getSaldo());
+
+            if (valor.compareTo(BigDecimal.ZERO) < 0) {
                 throw new IllegalArgumentException(SALDO_NEGATIVO);
             } else if (valor.compareTo(BigDecimal.ZERO) == 0) {
                 throw new IllegalArgumentException(SALDO_ZERADO);
