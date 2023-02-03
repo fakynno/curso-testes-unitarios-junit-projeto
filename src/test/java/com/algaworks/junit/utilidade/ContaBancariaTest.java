@@ -16,7 +16,7 @@ class ContaBancariaTest {
 
 
     @Test
-    void saldoNaoPodeSerNulo() {
+    void saldoDaContaNaoPodeSerNulo() {
         assertThrows(IllegalArgumentException.class, () -> new ContaBancaria(null),
                 SALDO_NULO);
     }
