@@ -11,6 +11,7 @@ class ContaBancariaTest {
 
     private final static String SALDO_NULO = ContaBancaria.getSaldoNulo();
     private final static String SALDO_ZERADO = ContaBancaria.getSaldoZerado();
+        private final static String SALDO_INSUFICENTE = ContaBancaria.getSaldoInsuficiente();
 
     @Test
     void saldoNaoPodeSerNulo() {
@@ -34,6 +35,15 @@ class ContaBancariaTest {
             conta.saque(BigDecimal.valueOf(0));
         });
         assertEquals(ContaBancaria.getSaldoZerado(), exception.getMessage());
+    }
+
+    @Test
+    void saqueComSaldoInsuficiente() {
+        ContaBancaria conta = new ContaBancaria(new BigDecimal(20));
+        assertThrows(RuntimeException.class, () -> {
+            conta.saque(BigDecimal.valueOf(25));
+            },
+              SALDO_INSUFICENTE);
     }
 
     @Test
