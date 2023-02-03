@@ -38,6 +38,14 @@ class ContaBancariaTest {
         });
         assertEquals(ContaBancaria.getSaldoZerado(), exception.getMessage());
     }
+    @Test
+    void saqueNaoPodeSerZero2() {
+        ContaBancaria conta = new ContaBancaria(new BigDecimal(0));
+        assertThrows(IllegalArgumentException.class, () -> {
+            conta.saque(BigDecimal.valueOf(0));
+        },
+          SALDO_ZERADO);
+    }
 
     @Test
     void saqueNaoPodeSerNegativo() {
