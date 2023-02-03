@@ -7,28 +7,44 @@
         private BigDecimal saldo;
 
         private final static String SALDO_NULO = "Saldo não pode ser nulo!";
+        private final static String DEPOSITO_NULO = "Depósito não pode ser nulo!";
         private final static String SALDO_INSUFICIENTE = "Saldo insuficiente para realizar esta operação!";
         private final static String SALDO_ZERADO = "Saldo não pode ser zerado!";
+        private final static String DEPOSITO_ZERADO = "Deposito não pode ser zerado!";
         private final static String SALDO_NEGATIVO = "Saldo não pode ser negativo!";
         private final static String SAQUE_NEGATIVO = "Saque não pode ser negativo!";
+        private final static String DEPOSITO_NEGATIVO = "Deposito não pode ser negativo!";
 
         public static String getSaldoNulo() {
             return SALDO_NULO;
+        }
+
+        public static String getDepositoNulo() {
+            return DEPOSITO_NULO;
         }
 
         public static String getSaldoInsuficiente() {
             return SALDO_INSUFICIENTE;
         }
 
+        public static String getSaldoZerado() {
+            return SALDO_ZERADO;
+        }
+
+        public static String getDepositoZerado() {
+            return DEPOSITO_ZERADO;
+        }
+
         public static String getSaldoNegativo() {
             return SALDO_NEGATIVO;
         }
 
-        public static String getSaldoZerado() {
-            return SALDO_ZERADO;
-        }
         public static String getSaqueNegativo() {
             return SAQUE_NEGATIVO;
+        }
+
+        public static String getDepositoNegativo() {
+            return DEPOSITO_NEGATIVO;
         }
 
         public BigDecimal getSaldo() {
