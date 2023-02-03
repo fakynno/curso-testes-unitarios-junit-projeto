@@ -28,6 +28,12 @@ class ContaBancariaTest {
     }
 
     @Test
+    void saldoDaContaPodeSerNegativo() {
+        ContaBancaria conta = new ContaBancaria(new BigDecimal(-12));
+        assertEquals(BigDecimal.valueOf(-12), conta.getSaldo());
+    }
+
+    @Test
     void saqueNaoPodeSerNulo() {
         ContaBancaria conta = new ContaBancaria(new BigDecimal(100));
         assertThrows(IllegalArgumentException.class, () -> {
