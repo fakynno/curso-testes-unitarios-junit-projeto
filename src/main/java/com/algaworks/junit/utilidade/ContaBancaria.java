@@ -10,6 +10,7 @@
         private final static String SALDO_INSUFICIENTE = "Saldo insuficiente para realizar esta operação!";
         private final static String SALDO_ZERADO = "Saldo não pode ser zerado!";
         private final static String SALDO_NEGATIVO = "Saldo não pode ser negativo!";
+        private final static String SAQUE_NEGATIVO = "Saque não pode ser negativo!";
 
         public static String getSaldoNulo() {
             return SALDO_NULO;
@@ -25,6 +26,9 @@
 
         public static String getSaldoZerado() {
             return SALDO_ZERADO;
+        }
+        public static String getSaqueNegativo() {
+            return SAQUE_NEGATIVO;
         }
 
         public BigDecimal getSaldo() {
@@ -51,6 +55,8 @@
 
             if (valor == null) {
                 throw new IllegalArgumentException(SALDO_NULO);
+            } else if (valor.compareTo(BigDecimal.ZERO) < 0) {
+                throw new IllegalArgumentException(SAQUE_NEGATIVO);
             }
 
             BigDecimal resultado;
