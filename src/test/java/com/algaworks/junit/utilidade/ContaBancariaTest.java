@@ -13,6 +13,9 @@ class ContaBancariaTest {
     private final static String SALDO_ZERADO = ContaBancaria.getSaldoZerado();
     private final static String SALDO_INSUFICENTE = ContaBancaria.getSaldoInsuficiente();
     private final static String SAQUE_NEGATIVO = ContaBancaria.getSaqueNegativo();
+    private final static String DEPOSITO_NULO = ContaBancaria.getDepositoNulo();
+    private final static String DEPOSITO_ZERADO = ContaBancaria.getDepositoZerado();
+    private final static String DEPOSITO_NEGATIVO = ContaBancaria.getDepositoNegativo();
 
 
     @Test
@@ -90,6 +93,7 @@ class ContaBancariaTest {
         assertThrows(IllegalArgumentException.class, () -> {
             contaBancaria.deposito(null);
         },
-        SALDO_NULO);
+        DEPOSITO_NULO);
     }
+
 }
